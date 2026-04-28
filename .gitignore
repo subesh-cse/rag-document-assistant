@@ -1,0 +1,4 @@
+vectorstore/
+temp_pdfs/
+*.pdf
+data/
