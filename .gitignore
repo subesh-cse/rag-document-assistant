@@ -1,4 +1,4 @@
+__pycache__/
+*.pyc
 vectorstore/
 temp_pdfs/
-*.pdf
-data/
