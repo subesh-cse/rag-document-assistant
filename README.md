@@ -2,7 +2,7 @@
 
 🚀 A production-style **Retrieval-Augmented Generation (RAG)** system that lets users upload multiple PDFs and ask questions with **source-grounded AI answers**.
 
-🔗 **Live Demo:** *(Add your Streamlit link here after deployment)*
+
 
 ---
 
