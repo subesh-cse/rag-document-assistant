@@ -1,17 +1,24 @@
 # 📄 RAG AI Document Assistant
 
-🚀 A production-style **Retrieval-Augmented Generation (RAG)** system that lets users upload multiple PDFs and ask questions with **source-grounded AI answers**.
+🚀 A production-style **Retrieval-Augmented Generation (RAG)** system that allows users to upload multiple PDFs and ask questions with **source-grounded AI answers**.
 
+---
 
+## 🌐 Live Demo
+
+👉 https://rag-document-assistant-fk66kfih3bxb8ymaab8xzf.streamlit.app/
+
+> ⚠️ Note: The live demo works best with **text-based PDFs**.
+> OCR support for scanned PDFs is available in local setup.
 
 ---
 
 ## ✨ Why This Project?
 
-* Handles **real-world PDFs** (including scanned documents via OCR)
+* Implements a real-world **RAG pipeline** for document QA
 * Provides **transparent answers with source context**
 * Uses **semantic search (FAISS)** for accurate retrieval
-* Designed with a **modular, scalable architecture**
+* Designed with a **modular and scalable architecture**
 
 ---
 
@@ -24,33 +31,32 @@
 * 🧠 Confidence score for answers
 * 📥 Download generated answers
 * ⚡ Fast retrieval using FAISS
-* 🧾 OCR fallback for scanned PDFs
 
 ---
 
 ## 🧠 How It Works
 
-This project implements a full **RAG pipeline**:
+This project implements a complete **RAG pipeline**:
 
-1. **Document Loading**
+### 1. Document Loading
 
-   * PyMuPDF extraction
-   * OCR fallback (Tesseract)
+* Extracts text using PyMuPDF
+* (Optional) OCR fallback supported in local environments
 
-2. **Text Processing**
+### 2. Text Processing
 
-   * Cleaning & normalization
-   * Chunking with overlap
+* Cleaning & normalization
+* Chunking with overlap
 
-3. **Embedding & Storage**
+### 3. Embedding & Storage
 
-   * Sentence-transformer embeddings
-   * FAISS vector store
+* Sentence-transformer embeddings
+* FAISS vector store
 
-4. **Retrieval & Generation**
+### 4. Retrieval & Generation
 
-   * Semantic search retrieves relevant chunks
-   * LLM generates grounded answer with sources
+* Semantic search retrieves relevant chunks
+* LLM generates grounded answers using retrieved context
 
 ---
 
@@ -60,7 +66,7 @@ This project implements a full **RAG pipeline**:
 * **LLM:** OpenAI (`gpt-4o-mini`)
 * **Vector DB:** FAISS
 * **Embeddings:** HuggingFace (MiniLM)
-* **PDF Processing:** PyMuPDF + Tesseract OCR
+* **PDF Processing:** PyMuPDF
 * **Framework:** LangChain
 
 ---
@@ -114,20 +120,20 @@ streamlit run app.py
 
 ## 🎯 Key Highlights
 
-* Robust **OCR fallback** for scanned PDFs
-* Modular architecture (loader → splitter → retriever → generator)
+* Modular pipeline (loader → splitter → retriever → generator)
 * Query-aware retrieval (summary vs factual queries)
-* Source-grounded answers for reliability
-* Streamlit UI with real-time interaction
+* Source-grounded responses for reliability
+* Clean Streamlit UI with real-time interaction
 
 ---
 
 ## 🔮 Future Improvements
 
 * Chat history / conversational memory
-* Reranking models (better retrieval quality)
+* Reranking models for improved retrieval accuracy
+* Cloud-compatible OCR integration
 * Multi-format support (DOCX, TXT)
-* Cloud deployment & scaling
+* Performance optimization & caching
 
 ---
 
@@ -135,4 +141,5 @@ streamlit run app.py
 
 **Subesh**
 B.Tech CSE | Machine Learning Enthusiast
+
 
