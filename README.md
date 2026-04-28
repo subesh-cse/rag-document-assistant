@@ -70,23 +70,30 @@ This project implements a complete **RAG pipeline**:
 ---
 
 ## 📂 Project Structure
+
+```
 rag-document-assistant/
 │
-├── app.py # Streamlit UI
+├── app.py
 ├── requirements.txt
 ├── .gitignore
 │
 ├── src/
-│ ├── loader.py # PDF loading + OCR
-│ ├── splitter.py # Text chunking
-│ ├── embeddings.py # Vector store (FAISS)
-│ ├── retriever.py # Retrieval logic
-│ ├── generator.py # LLM response generation
-│ └── pipeline.py # End-to-end pipeline
+│   ├── loader.py
+│   ├── splitter.py
+│   ├── embeddings.py
+│   ├── retriever.py
+│   ├── generator.py
+│   └── pipeline.py
 │
-├── screenshots/ # UI screenshots
-└── notebooks/ # Experiments
-
+├── screenshots/
+│   ├── ui.png
+│   ├── answer.png
+│   └── source.png
+│
+├── notebooks/
+│   └── rag_experiments.ipynb
+```
 
 ---
 
