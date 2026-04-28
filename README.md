@@ -103,29 +103,52 @@ rag-document-assistant/
 ```bash
 git clone https://github.com/subesh-cse/rag-document-assistant.git
 cd rag-document-assistant
-2. Create environment
+```
+
+### 2. Create environment
+```bash
 conda create -n rag python=3.10
 conda activate rag
-3. Install dependencies
-pip install -r requirements.txt
-4. Set API Key
-setx OPENAI_API_KEY "your_api_key_here"
-5. Run the app
-streamlit run app.py
-🎯 Key Highlights
-Handles real-world noisy PDFs
-Supports scanned documents via OCR
-Implements complete RAG pipeline from scratch
-Clean and interactive Streamlit UI
-Transparent answers with source context
-Optimized retrieval using FAISS
-📌 Future Improvements
-💬 Chat history support
-🔁 Reranking models for better retrieval
-🌐 Deployment (Streamlit Cloud / AWS)
-📄 Support for DOCX / TXT files
-⚡ Faster indexing & caching
-👨‍💻 Author
+```
 
-Subesh
-B.Tech CSE | Machine Learning Enthusiast
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Set API Key
+```bash
+setx OPENAI_API_KEY "your_api_key_here"
+```
+
+### 5. Run the app
+```bash
+streamlit run app.py
+```
+
+---
+
+## 🎯 Key Highlights
+
+- ✅ Handles real-world noisy PDFs
+- ✅ Supports scanned documents via OCR
+- ✅ Implements complete RAG pipeline from scratch
+- ✅ Clean and interactive Streamlit UI
+- ✅ Transparent answers with source context
+- ✅ Optimized retrieval using FAISS
+
+---
+
+## 📌 Future Improvements
+
+- 💬 Chat history support
+- 🔁 Reranking models for better retrieval
+- 🌐 Deployment (Streamlit Cloud / AWS)
+- 📄 Support for DOCX / TXT files
+- ⚡ Faster indexing & caching
+
+---
+
+## 👨‍💻 Author
+
+**Subesh** | B.Tech CSE | Machine Learning Enthusiast
