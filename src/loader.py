@@ -1,5 +1,6 @@
 import os
 import re
+import shutil
 from langchain_community.document_loaders import PyMuPDFLoader
 from langchain_core.documents import Document
 import pytesseract
@@ -7,8 +8,12 @@ from PIL import Image
 import fitz  # PyMuPDF
 
 
-# ✅ Set your Tesseract path
-pytesseract.pytesseract.tesseract_cmd = r"C:\Users\subes\AppData\Local\Programs\Tesseract-OCR\tesseract.exe"
+# 🔥 Detect if Tesseract is available (for cloud compatibility)
+tesseract_available = shutil.which("tesseract") is not None
+
+# Optional: set local path ONLY if available
+if tesseract_available:
+    pytesseract.pytesseract.tesseract_cmd = "tesseract"
 
 
 def clean_text(text):
@@ -53,28 +58,31 @@ def load_documents_from_folder(folder_path):
                     doc.metadata["source"] = file
                     valid_docs.append(doc)
 
-            # 🔥 OCR fallback
+            # 🔥 OCR fallback (ONLY if Tesseract exists)
             if not valid_docs:
-                print("⚠️ Using OCR...")
+                if tesseract_available:
+                    print("⚠️ Using OCR...")
 
-                pdf = fitz.open(file_path)
+                    pdf = fitz.open(file_path)
 
-                for i, page in enumerate(pdf):
-                    pix = page.get_pixmap()
-                    img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+                    for i, page in enumerate(pdf):
+                        pix = page.get_pixmap()
+                        img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
 
-                    text = pytesseract.image_to_string(img, config="--psm 6")
-                    text = clean_text(text)
+                        text = pytesseract.image_to_string(img, config="--psm 6")
+                        text = clean_text(text)
 
-                    if len(text.split()) > 10:
-                        valid_docs.append(
-                            Document(
-                                page_content=text,
-                                metadata={"source": file, "page": i}
+                        if len(text.split()) > 10:
+                            valid_docs.append(
+                                Document(
+                                    page_content=text,
+                                    metadata={"source": file, "page": i}
+                                )
                             )
-                        )
 
-                pdf.close()
+                    pdf.close()
+                else:
+                    print("❌ OCR skipped (Tesseract not available)")
 
             print(f"✅ Final extracted pages: {len(valid_docs)}")
 
